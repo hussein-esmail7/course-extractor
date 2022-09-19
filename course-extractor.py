@@ -12,10 +12,13 @@ Description: [DESCRIPTION]
 import os
 import sys
 import platform
+from PyPDF2 import PdfFileReader
 
 # ========= VARIABLES ===========
 
 # ========= COLOR CODES =========
+from pdf_reader import pdf_reader
+
 color_end               = '\033[0m'
 color_darkgrey          = '\033[90m'
 color_red               = '\033[91m'
@@ -56,12 +59,20 @@ def get_platform():
         # TODO: Account for Linux
     else:
         return "UNKOWN"
+def course_extractor(path):
+    pdf = pdf_reader(path)
+    pdf.extractor()
+    course_code = ""
+    return course_code
 
 
 def main():
     # CODE HERE
-    print(get_platform())
-    sys.exit()
+    #print(get_platform())
+    #sys.exit()
+    path = '/Users/hrutikmehta0/My Drive/Programming/Course_Extractor/declaration.pdf'
+    print(course_extractor(path))
+
 
 
 if __name__ == "__main__":
