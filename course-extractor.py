@@ -61,8 +61,7 @@ def get_platform():
         return "UNKOWN"
 def course_extractor(path):
     pdf = pdf_reader(path)
-    pdf.extractor()
-    course_code = ""
+    course_code = pdf.extractor()[0]
     return course_code
 
 
